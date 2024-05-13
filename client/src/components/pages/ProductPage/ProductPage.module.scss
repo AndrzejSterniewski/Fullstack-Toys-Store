@@ -1,0 +1,16 @@
+.home {
+    display: grid;
+    justify-content: center;
+
+    &_products {
+        display: grid;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+
+    .home_products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

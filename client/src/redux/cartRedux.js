@@ -1,7 +1,7 @@
 //selectors
 
 // actions
-const createActionName = actionName => `app/cart/${actionName}`;
+// const createActionName = actionName => `app/cart/${actionName}`;
 
 // action creators
 const cartReducer = (statePart = [], action) => {

@@ -7,7 +7,7 @@ const ProductCard = (props) => {
         <div className={styles.card}>
             <h1>{props.name}</h1>
             <h3>Kategoria: {props.category}</h3>
-            <img className={styles.main_image} src={IMGS_URL + props.main_img}></img>
+            <img className={styles.main_image} src={IMGS_URL + props.main_img} alt="product"></img>
             <Button content="Szczegóły"/>
         </div>
     )
