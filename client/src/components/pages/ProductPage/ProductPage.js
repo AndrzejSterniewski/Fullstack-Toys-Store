@@ -1,6 +1,15 @@
+import { useSelector } from "react-redux";
+import { getAllProducts } from "../../../redux/productsRedux";
+import ProductCard from "../../common/ProductCard/ProductCard";
+
 const ProductPage = () => {
-    return(
-        <h1>Single Product Page</h1>
+
+    const products = useSelector(getAllProducts);
+
+    return (
+        <div>
+            {products.map(product => <ProductCard key={product.id} {...product} />)}
+        </div>
     )
 };
 

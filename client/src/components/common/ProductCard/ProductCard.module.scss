@@ -1,0 +1,23 @@
+@import '../../../styles/settings.scss';
+
+.card {
+    border: 2px solid black;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 2rem;
+    margin: 5rem;
+
+}
+
+.main_image {
+    width: 20em;
+    height: 20em;
+    object-fit: contain;
+    align-self: center;
+}
+
+Button {
+    align-self: center;
+}

@@ -1,4 +1,8 @@
+@import '../../../styles/settings.scss';
+
 .footer {
     text-align: center;
-    background: #E43D12;
+    background: $color-primary;
+    color: $color-main;
+    padding: 5px;
 }

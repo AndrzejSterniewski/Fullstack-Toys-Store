@@ -1,0 +1,9 @@
+@import '../../../styles/settings.scss';
+
+.button {
+    background-color: $color-secondary;
+    height: 2rem;
+    width: 50%;
+    border-radius: 5px;
+    margin: 1rem;
+}

@@ -12,18 +12,6 @@ const LOAD_PRODUCTS = createActionName('LOAD_PRODUCTS');
 // action creators
 export const loadProducts = payload => ({ type: LOAD_PRODUCTS, payload });
 
-// export const loadProductsRequest = () => {
-//   return async (dispatch) => {
-//     try {
-//       const response = await fetch(`${API_URL}/api/products`);
-//       const data = await response.json();
-//       console.log(data);
-//       dispatch(loadProducts(data));
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
 export const loadProductsRequest = () => {
   return async (dispatch) => {
     try {
