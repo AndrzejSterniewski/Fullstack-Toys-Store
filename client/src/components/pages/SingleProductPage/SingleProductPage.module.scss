@@ -1,13 +1,20 @@
 @import '../../../styles/settings.scss';
 
-.card {
-    background-color: $color-main;
+.product_page {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product {
     background-color: $color-white;
     border: 1px solid $color-primary;
     border-radius: 5px;
     width: 20rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
     padding: 0.5rem;
@@ -21,9 +28,7 @@
     align-self: center;
 }
 
-.link {
-    margin: 0.5rem;
+Button {
+    align-self: center;
+    width: 100%;
 }
-// Button {
-//     align-self: center;
-// }

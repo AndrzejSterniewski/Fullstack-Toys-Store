@@ -1,3 +1,5 @@
+
+
 const NotFound = () => {
     return (
         <div className="styles.notfound">

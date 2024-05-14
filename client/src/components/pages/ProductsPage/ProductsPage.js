@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../../redux/productsRedux";
 import ProductCard from "../../common/ProductCard/ProductCard";
-import styles from './ProductPage.module.scss';
+import styles from './ProductsPage.module.scss';
 
 const ProductPage = () => {
 
