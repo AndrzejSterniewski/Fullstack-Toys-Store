@@ -33,7 +33,7 @@ const Counter = () => {
 
     return (
         <div className={styles.counter_container}>
-            <div>Liczba sztuk: </div>
+            <div>Quantity: </div>
             <div className={styles.counter_input}>
                 <Button onClick={() => setProductAmount(productAmount - 1)} content={<FaMinus />} />
                 {/* <input {...register("productAmount", { min: 1, max: 10 })}
