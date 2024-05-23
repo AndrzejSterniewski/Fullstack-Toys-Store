@@ -24,7 +24,7 @@ export class CreateOrderDTO {
 
     @ArrayNotEmpty()
     @IsString({ each: true })
-    productIds: string[];
+    productsIds: string[];
 
     @IsNotEmpty()
     @IsString()

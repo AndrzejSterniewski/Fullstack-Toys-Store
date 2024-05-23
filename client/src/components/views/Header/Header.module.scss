@@ -2,11 +2,9 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem;
     font-weight: 700;
-    // text-decoration: none;
-    
 }
 
 .name {
@@ -17,8 +15,12 @@
 }
 .nav {
     display: flex;
+
 .basket {
     margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
 }
 
     a {

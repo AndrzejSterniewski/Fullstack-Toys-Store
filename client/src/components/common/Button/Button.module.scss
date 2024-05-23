@@ -2,17 +2,22 @@
 
 .button {
     background-color: $color-primary;
+    color: $color-white;
     height: 2rem;
-    // width: 50%;
     width: fit-content;
     border-radius: 5px;
     border: none;
-    color: $color-main;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
 
     &:hover {
-    background-color: $color-light;
-    color: $color-primary;
+        background-color: lighten($color-primary, 15%);
+      }
+
+    &:active {
+        background-color: $color-primary;
+        color: $color-main;
     }
 }
 

@@ -1,4 +1,5 @@
 //selectors
+export const getAllDeliveryForms = (state => state.deliveryForms);
 
 // actions
 // const createActionName = actionName => `app/cart/${actionName}`;

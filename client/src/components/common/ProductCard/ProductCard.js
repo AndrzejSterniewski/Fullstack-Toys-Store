@@ -10,7 +10,7 @@ const ProductCard = (props) => {
             <h3>Kategoria: {props.category}</h3>
             <img className={styles.main_image} src={IMGS_URL + props.main_img} alt="product"></img>
             <Link to={`/product/${props.id}`} className={styles.link}>
-                <Button type="button" content="szczegóły" />
+                <Button type="button" content="details" />
             </Link>
         </div>
     )

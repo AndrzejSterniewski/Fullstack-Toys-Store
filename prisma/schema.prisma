@@ -14,32 +14,32 @@ datasource db {
 }
 
 model Product {
-    id String @id @default(uuid())
-    name String @unique
-    price Int
-    description String
-    category String
-    main_img String
-    gallery_img String?
+  id          String  @id @default(uuid())
+  name        String  @unique
+  price       Int
+  description String
+  category    String
+  main_img    String
+  gallery_img String?
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    orders Order[]
+  orders          Order[]
 }
 
 model Order {
-    id String @id @default(uuid())
-    user_name String
-    user_email String
-    user_address String
-    comment String?
-    delivery String
-    price_products Int
-    price_total Int
+  id             String  @id @default(uuid())
+  user_name      String
+  user_email     String
+  user_address   String
+  comment        String?
+  delivery       String
+  price_products Int
+  price_total    Int
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    products Product[]
+  products        Product[]
 }

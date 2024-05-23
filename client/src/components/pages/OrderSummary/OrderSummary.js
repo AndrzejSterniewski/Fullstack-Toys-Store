@@ -1,6 +1,10 @@
+import styles from './OrderSummary.module.scss';
+
 const OrderSummary = () => {
-    return(
-        <h1>Podsumowanie zamówienia</h1>
+    return (
+        <section className={styles.order_summary_container}>
+            <h1>Order's summary</h1>
+        </section>
     )
 };
 
