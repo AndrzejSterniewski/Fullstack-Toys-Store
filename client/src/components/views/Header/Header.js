@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { FaShoppingCart } from "react-icons/fa";
 import Modal from "../../common/Modal/Modal";
+import { getTotalQuantity } from '../../../redux/cartRedux';
 
 const Header = () => {
 
+    const totalQuantity = useSelector(getTotalQuantity);
     const [openModal, setOpenModal] = useState(false);
 
     return (
@@ -17,7 +20,8 @@ const Header = () => {
                 {/* <NavLink to="cart" className={styles.basket}><FaShoppingCart className={styles.basket}/>Koszyk</NavLink> */}
                 <NavLink onClick={() => {
                     setOpenModal(true);
-                }} className={styles.basket}><FaShoppingCart className={styles.basket} />Cart</NavLink>
+                }} className={styles.basket}><FaShoppingCart className={styles.basketIcon} /><span className={styles.basketCounter}>{totalQuantity}</span>Cart</NavLink>
+                
                 {(openModal && <Modal
                     // open={openModal}
                     onClose={() => {

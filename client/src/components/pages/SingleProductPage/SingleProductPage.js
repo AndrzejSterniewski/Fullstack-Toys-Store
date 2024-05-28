@@ -1,24 +1,74 @@
 import styles from './SingleProductPage.module.scss';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { IMGS_URL } from "../../../config";
-import { useParams, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { getProductById } from '../../../redux/productsRedux';
+import { addProduct, getAllCartProducts } from '../../../redux/cartRedux';
 import Button from '../../common/Button/Button';
 import Counter from '../../common/Counter/Counter';
-import { useState } from 'react';
+import Modal from '../../common/Modal/Modal';
 
 const SingleProductPage = () => {
 
-    const params = useParams();
-    const product = useSelector((state) => getProductById(state, params.id));
+    const { id } = useParams();
+    const product = useSelector((state) => getProductById(state, id));
+
+    const dispatch = useDispatch();
 
     const [cartItems, setCartItems] = useState([]);
     // const { products } = data;
-    const addToCart = (product) => {
-        // console.log('product added', product.price, productAmount)
-        ;
+    const [quantity, setQuantity] = useState(1);
+    const [openModal, setOpenModal] = useState(false);
+
+    {
+        (openModal && <Modal
+            // open={openModal}
+            onClose={() => {
+                setOpenModal(false);
+            }}
+        />)
+    }
+
+
+    // const handleAddToCart = (e) => {
+    //     e.preventDefault();
+    //     const { id, name, price, category, main_img, desription, productQuantity } = product
+    //     // addProduct(id, name, price, category, main_img, desription, productQuantity, dispatch);
+    //     dispatch(addProduct({ ...product, productQuantity}))
+    //     console.log('product added', product, quantity, 'total price:', product.price * quantity);
+    //     setOpenModal(true);
+    // };
+
+
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        // const { id, name, main_img, price } = product;
+        dispatch(addProduct({ ...product, quantity }));
+        console.log('product added', product, quantity, 'total price:', product.price * quantity);
+        setOpenModal(true);
     };
-    const { id } = useParams();
+
+
+    // const handleAddToCart = (e) => {
+
+    //     // const { id, name, main_img, price } = product;
+    //     // addToCartFunction(id, name, price, category, main_img, desription, productQuantity, products, dispatch);
+    //     // setSideCartSummary(true);
+    //     setTimeout(() => {
+    //         setSideCartSummary(false);
+    //     }, 2500);
+    // };
+
+    // const handleAddToCart = (e) => {
+    //     e.preventDefault();
+    //     const { id, name, main_img, price } = product;
+    //     addToCartFunction(id, name, main_img, price, amount, products, dispatch);
+    //     setSideCartSummary(true);
+    //     setTimeout(() => {
+    //       setSideCartSummary(false);
+    //     }, 2500);
+    //   };
 
     // const { productAmount } = props;
 
@@ -32,10 +82,16 @@ const SingleProductPage = () => {
                 <div>{product.description}</div>
             </div>
             <div className={styles.productCounter}>
-                <Counter />
-                <Button as={Link} to={`/product/${product.id}`} content="add to cart" onClick={() => addToCart(product)} />
+                <Counter countProduct={setQuantity} />
+                <Button content="add to cart" onClick={handleAddToCart} />
                 {/* <NavLink to={`/product/${props.id}`}>Szczegóły</NavLink> */}
             </div>
+            {(openModal && <Modal
+                // open={openModal}
+                onClose={() => {
+                    setOpenModal(false);
+                }}
+            />)}
         </section>
     )
 };

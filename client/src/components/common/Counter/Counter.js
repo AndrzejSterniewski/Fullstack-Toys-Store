@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
-import { faSquareMinus } from '@fortawesome/free-solid-svg-icons';
 import styles from './Counter.module.scss';
 import Button from '../Button/Button';
 import { FaMinus } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
 
-const Counter = () => {
+const Counter = ({number, countProduct }) => {
 
-    const [productAmount, setProductAmount] = useState(1);
+    const [productAmount, setProductAmount] = useState(number || 1);
 
     useEffect(() => {
         if (productAmount < 1)
             setProductAmount(1);
         if (productAmount > 10)
             setProductAmount(10);
+        // productQuantity(productAmount);
+        countProduct(productAmount);
     }, [productAmount]);
 
     const { register, handleSubmit: validate, formState: { errors } } = useForm();

@@ -32,13 +32,33 @@ export const changeQuantity = (payload) => ({ payload, type: CHANGE_QUANTITY });
 export const addComment = (payload) => ({ payload, type: ADD_COMMENT });
 
 const cartReducer = (statePart = initialState, action = {}) => {
+
   switch (action.type) {
     case ADD_PRODUCT: {
-      return {
-        ...statePart,
-        products: [...statePart.products, action.payload],
-      };
+      const existingProductIndex = statePart.products.findIndex(
+        (p) => p.id === action.payload.id,
+      );
+      if (existingProductIndex >= 0) {
+        return {
+          statePart,
+          products: statePart.products.map((product, index) => {
+            if (index === existingProductIndex) {
+              return {
+                ...product,
+                quantity: product.quantity + action.payload.quantity,
+              };
+            }
+            return product;
+          })
+        }
+      } else {
+        return {
+          ...statePart,
+          products: [...statePart.products, action.payload],
+        }
+      }
     }
+
     case REMOVE_PRODUCT: {
       return {
         ...statePart,

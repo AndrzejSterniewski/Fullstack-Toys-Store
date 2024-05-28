@@ -1,6 +1,7 @@
 import styles from './Modal.module.scss';
 import Button from '../Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import Cart from '../../pages/Cart/Cart';
 
 const Modal = ({ onClose }) => {
 
@@ -12,7 +13,7 @@ const Modal = ({ onClose }) => {
     };
 
     const handleSubmit = () => {
-        navigate('order');
+        navigate('/order');
         onClose();
     }
 
@@ -23,9 +24,7 @@ const Modal = ({ onClose }) => {
                     e.stopPropagation();
                 }}
             >
-                <div className={styles.modalText}>
-                    <h1>Zawartość twojego koszyka:</h1>
-                </div>
+                <Cart />
 
                 <div className={styles.modalButtons}>
 
