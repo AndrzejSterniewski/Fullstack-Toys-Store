@@ -18,18 +18,20 @@ const Header = () => {
             </div>
             <div className={styles.nav}>
                 {/* <NavLink to="cart" className={styles.basket}><FaShoppingCart className={styles.basket}/>Koszyk</NavLink> */}
-                <NavLink onClick={() => {
+                {/* <NavLink onClick={() => {
                     setOpenModal(true);
-                }} className={styles.basket}><FaShoppingCart className={styles.basketIcon} /><span className={styles.basketCounter}>{totalQuantity}</span>Cart</NavLink>
+                }} className={styles.cart}><FaShoppingCart className={styles.cartIcon} /><span className={styles.cartCounter}>{totalQuantity}</span>Cart</NavLink>
                 
                 {(openModal && <Modal
                     // open={openModal}
                     onClose={() => {
                         setOpenModal(false);
                     }}
-                />)}
-                <NavLink to="order">Order</NavLink>
-                <NavLink to="about">About</NavLink>
+                />)} */}
+
+                <NavLink to="/cart" className={styles.cart}><FaShoppingCart className={styles.cartIcon} /><span className={styles.cartCounter}>{totalQuantity}</span>Cart</NavLink>
+                <NavLink to="/order">Order</NavLink>
+                <NavLink to="/about">About</NavLink>
             </div>
         </nav>
     )

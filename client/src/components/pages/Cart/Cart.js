@@ -1,6 +1,7 @@
 import styles from './Cart.module.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { IMGS_URL } from "../../../config";
 import { getAllCartProducts, getAllProductsPrice, getTotalQuantity, changeQuantity, removeProduct } from '../../../redux/cartRedux';
 import Button from '../../common/Button/Button';
@@ -19,6 +20,7 @@ const Cart = () => {
     const [comments, setComments] = useState({});
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleQuantityChange = (productId, index, quantity) => {
         setQuantity((oldQuantity) => {
@@ -33,9 +35,17 @@ const Cart = () => {
         dispatch(removeProduct(id));
     };
 
+    const handleSubmit = () => {
+        navigate('/order');
+    }
+
+    const handleReturnToMain = () => {
+        navigate('/');
+    }
+
     return (
         <section className={styles.cart}>
-            <h1 className={styles.cart_title}>Your cart:</h1>
+            <h1 className={styles.cart_title}>Cart</h1>
             <div>
                 {cartProducts.map((product, index) => (
                     <div key={index} className={styles.cart_product}>
@@ -56,7 +66,6 @@ const Cart = () => {
                         <div className={styles.cart_product_property}>
                             {product.price * quantity[index]} zł
                         </div>
-
                         <Button
                             type="button"
                             content={<IoTrashBin />}
@@ -66,18 +75,27 @@ const Cart = () => {
 
                 ))}
             </div>
-            <div>You have {totalQuantity} products in your cart.</div>
-            <div>Total price: {totalPrice}</div>
+            {totalQuantity > 0
+                ? <div className={styles.cartSummary}>
+                    <div>You have {totalQuantity} products in your cart.</div>
+                    <div>Total price: {totalPrice}</div>
+                    <div className={styles.buttonContainer}>
+                        <Button onClick={handleReturnToMain} content="continue shopping" />
+                        <Button onClick={handleSubmit} content="make an order" />
+                    </div>
+                </div>
+                :
+                <div>
+                    <div>Your cart is empty</div>
+                    <Button onClick={handleReturnToMain} content="continue shopping" />
+                </div>
+            }
+            {/* {totalQuantity > 0
+                ? <Button onClick={handleSubmit} content="make an order" />
+                : <Button onClick={handleReturnToMain} content="continue shopping" />
+            } */}
         </section>
-
-
     )
-
-
-
-
-
-
 };
 
 export default Cart;

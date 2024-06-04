@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { IMGS_URL } from "../../../config";
 import { getProductById } from '../../../redux/productsRedux';
-import { addProduct, getAllCartProducts } from '../../../redux/cartRedux';
+import { addProduct } from '../../../redux/cartRedux';
 import Button from '../../common/Button/Button';
 import Counter from '../../common/Counter/Counter';
 import Modal from '../../common/Modal/Modal';

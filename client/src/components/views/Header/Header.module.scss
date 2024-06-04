@@ -5,6 +5,8 @@
     justify-content: space-around;
     padding: 1rem;
     font-weight: 700;
+    background-color: $color-secondary;
+    color: $color-main;
 }
 
 .name {
@@ -16,35 +18,34 @@
 .nav {
     display: flex;
 
-.basket {
-    margin: 0 0.5rem;
+.cart {
     display: flex;
     align-items: center;
     text-transform: uppercase;
     position: relative;
+}
+
+.cartIcon {
     margin-right: 1.5rem;
 }
 
-.basketCounter {
+.cartCounter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 5px;
-    left: 32px;
-    border: 2px solid red;
+    top: -0.5rem;
+    left: 25px;
+    border: 2px solid $color-dark;
     border-radius: 50%;
     padding: 1px;
     width: 15px;
     height: 15px;
-    text-align: center;
 }
 
     a {
         padding: 0.5rem;
         margin: 0.3rem;
-        // text-decoration: none;
-        // text-transform: uppercase;
-        // background-color: $color-secondary;
-        // color: $color-main;
-        // border-radius: 5px;
         text-transform: uppercase;
         text-decoration: none;
         color: $color-primary;

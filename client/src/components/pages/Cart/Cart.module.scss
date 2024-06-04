@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 
         &_title {
-            margin-top: 0;
+            margin-top: 1rem;
             position: relative;
         }
 
@@ -15,14 +16,38 @@
             flex-direction: row;
 
             align-items: center;
+            margin: 1rem;
+
+            & > * {
+                margin: 0.5rem;
+            }
     
             &_imgWrapper {
-                width: 100%;
-                text-align: center;
+                display: flex;
+                height: 10rem;
+                width: 10rem;
     
                 &_img {
-                    width: 50%;
+                    overflow: hidden;  
                 }
             }
         }
+}
+
+.cartSummary {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        margin: 0.2rem;
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+
+    & > * {
+        margin: 0.5rem;
+    }
 }

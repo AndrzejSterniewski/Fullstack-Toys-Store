@@ -20,12 +20,12 @@
   border-radius: 5px;
   z-index: 2;
   padding: 30px;
-  width: 30em;
-  max-height: 50vh;
+  width: 50%;
+  
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  text-transform: uppercase;
 
   .closeBtn {
     background-color: $modal-button-color;
@@ -83,4 +83,27 @@
   .modalTextLogOut {
     padding: 20px 0;
   }
+}
+
+.miniCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+      &_product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 1rem;
+  
+          &_imgWrapper {
+              display: flex;
+              height: 10rem;
+              width: 10rem;
+  
+              &_img {
+                  overflow: hidden;  
+              }
+          }
+      }
 }
